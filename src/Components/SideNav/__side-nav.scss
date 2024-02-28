@@ -5,8 +5,9 @@
     margin-top: 1em;
     padding: 0.6em;
     box-shadow: 1px 0px 14px 0px lightgray;
-    height: 40em;
+    height: 100%;
     border-radius: 1em;
+    margin-bottom: 1em;
 
     .section-title{
         padding: 30px;
@@ -32,5 +33,11 @@
                 @include underline-transition(0.5);
             }
         }
+    }
+
+    .price-filter-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
 }

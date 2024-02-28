@@ -1,8 +1,12 @@
 import React from 'react';
 import './__top-nav.scss';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function TopNav() {
-
+    
+    const cartItems = useSelector(state => state.cartReducer.totalItems);
+    // console.log(cartItems)
 
   return (
     <>
@@ -29,7 +33,18 @@ function TopNav() {
                    <div className='cart-wishlist'>
                       <ul className='p-0'>
                         <li className='list-icon'><i className='fa fa-heart'></i></li>
-                        <li className='list-icon'><i className='fa fa-shopping-cart'></i></li>
+                        <Link to='/cart'>
+                        <li className='list-icon'><i className='fa fa-shopping-cart'></i>
+                           {
+                            cartItems !== 0 
+                            ? 
+                            <div id='cart-items-count'>
+                              <p>{cartItems}</p>
+                            </div>
+                           : <></>
+                           }
+                        </li>
+                        </Link>
                       </ul>
                    </div>
             </div>
